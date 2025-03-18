@@ -56,6 +56,12 @@ const hangupButton = document.getElementById('hangupButton');
 webcamButton.onclick = async () => {
   localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
   remoteStream = new MediaStream();
+  
+  const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+                document.getElementById("localVideo").srcObject = stream;
+  
+  
+  
 
   // Push tracks from local stream to peer connection
   localStream.getTracks().forEach((track) => {
